@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery.jqGrid.js"></script>
+<table id="accountsTable"></table>
+<div id="accountsTablePager">
+</div>
+<script type="text/javascript">
+    $("#accountsTable").jqGrid({
+        url: '',
+        datatype: "json",
+        colNames: ['Id','First Name', 'Last Name', 'Last 4 SSN', 'Department',
+                'Age', 'Salary',  "Address",'Marital Status'],
+        colModel: [
+        { name: '_id', index: '_id', width: 20, stype: 'text' },
+        { name: 'FirstName', index: 'FirstName', width: 150 },
+        { name: 'LastName', index: 'LastName', width: 150 },
+           { name: 'LastSSN', index: 'LastSSN', width: 100 },
+        { name: 'Department', index: 'Department', width: 80, align: "right" },
+        { name: 'Age', index: 'Salary', width: 80, align: "right" },
+        { name: 'Salary', index: 'Salary', width: 80, align: "right" },
+        { name: 'Address', index: 'Address', width: 150, sortable: false },
+        { name: 'MaritalStatus', index: 'MaritalStatus', width: 100, sortable: false }
+        ],
+
+        rowNum: 10,
+        mType: 'GET',
+        loadonce: true,
+        pager: '#accountsTablePager',
+        sortname: 'id',
+        viewrecords: true,
+        sortorder: "desc",
+        caption: "List Employee Details"
+    });
+</script>
+
